@@ -15,6 +15,12 @@ import lombok.extern.log4j.Log4j2;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Gestionnaire des connexions WebSocket.
+ * Cette classe gère les connexions WebSocket, les messages entrants et sortants,
+ * et maintient une liste des sessions actives pour envoyer des mises à jour à tous les clients.
+ */
 @Log4j2
 @Component
 public class WebSocketHandler extends TextWebSocketHandler {
@@ -23,18 +29,6 @@ public class WebSocketHandler extends TextWebSocketHandler {
     private PixelController pixelController;
 
     private final List<WebSocketSession> activeSessions = new ArrayList<>();
-
-    public void addSession(WebSocketSession session) {
-        activeSessions.add(session);
-    }
-
-    public void removeSession(WebSocketSession session) {
-        activeSessions.remove(session);
-    }
-
-    public List<WebSocketSession> getActiveSessions() {
-        return activeSessions;
-    }
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
@@ -79,6 +73,11 @@ public class WebSocketHandler extends TextWebSocketHandler {
         }
     }
 
+    /**
+     * Envoie un message WebSocket à toutes les sessions actives.
+     *
+     * @param message Le message à envoyer.
+     */
     public void sendToActiveSessions(TextMessage message) {
         for (WebSocketSession session : activeSessions) {
             try {

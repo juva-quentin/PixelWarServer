@@ -2,15 +2,13 @@ package com.example.pixelwarserver.controller;
 
 import com.example.pixelwarserver.model.Pixel;
 import com.example.pixelwarserver.repository.PixelRepository;
-import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
+
+
 @Log4j2
 @Controller
 public class PixelController {
@@ -18,7 +16,12 @@ public class PixelController {
     @Autowired
     private PixelRepository pixelRepository;
 
-
+    /**
+     * Met à jour un pixel enregistré dans la base de données.
+     *
+     * @param pixel Le pixel à mettre à jour.
+     * @return Le pixel mis à jour.
+     */
     public Pixel updatePixel(Pixel pixel) {
         try {
             Pixel savedPixel = pixelRepository.save(pixel);
@@ -34,6 +37,11 @@ public class PixelController {
         }
     }
 
+    /**
+     * Récupère tous les pixels enregistrés dans la base de données.
+     *
+     * @return Une liste de tous les pixels.
+     */
     public List<Pixel> getAllPixels() {
         try {
             return pixelRepository.findAll();
