@@ -13,7 +13,7 @@ Maven
 
 Clonez ce dépôt Git sur votre machine locale :
 
-git clone https://github.com/votre-nom-utilisateur/pixelwar-server.git
+git clone https://github.com/juva-quentin/PixelWarServer.git
 
 Accédez au répertoire du projet :
 
