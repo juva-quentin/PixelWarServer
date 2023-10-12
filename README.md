@@ -19,6 +19,8 @@ Accédez au répertoire du projet :
 
 cd pixelwar-server
 
+Pour lancer l'application, il faut le lancer avec ces deux variables : database.name=<>;database.pswd=<>
+
 ## Utilisation
 
 L'application PixelWar Server gère un jeu multijoueur où les utilisateurs peuvent peindre des pixels sur un canevas partagé en temps réel. Vous pouvez interagir avec le serveur via l'API WebSocket.
