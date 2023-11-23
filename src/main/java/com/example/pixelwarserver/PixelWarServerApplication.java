@@ -22,10 +22,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @SpringBootApplication
 public class PixelWarServerApplication {
 
-    @Value("${database.name}")
+    @Value("${DATABASE_NAME}")
     private String databaseName;
 
-    @Value("${database.pswd}")
+    @Value("${DATABASE_PSWD}")
     private String databasePswd;
 
     /**
